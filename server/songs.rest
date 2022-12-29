@@ -24,9 +24,9 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/songs/560a1820-eaae-42a1-ba36-f06c196ac1b8
+GET http://localhost:3000/songs/:id
 
 ###
 
-DELETE http://localhost:3000/songs/d8e4bb0c-1d87-4fc6-89b0-556ad567c6e2
+DELETE http://localhost:3000/songs/:id
 

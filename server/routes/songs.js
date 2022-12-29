@@ -1,16 +1,35 @@
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid'; //Ger unikt id till varje låt
+import fs from 'fs';
 
 const router = express.Router();
 
 let songs = [];
 
-//GET endpoint för hela spellistan
+//alla endpoints här lyssnar till /songs
+
+/*GET endpoint för hela spellistan
 router.get('/', (req, res) => {
     console.log(songs);
 
     res.send(songs);
-});
+});*/
+
+router.get('/', (req, res) => {
+    fs.readFile("songs.json", function (err, data){
+
+        if(err){
+            console.log(err);
+            res.status(404).send("Filen du försöker nå finns inte")
+        }
+
+        const songs = JSON.parse(data)
+
+        console.log(data);
+        res.send(songs);
+        return;
+    });
+})
 
 
 //POST endpoint för att lägga till en låt till spellistan (Vi skickar data från frontend till servern)
@@ -41,7 +60,7 @@ router.delete('/:id', (req, res) => {
     res.send("Deleted from playlist");
 });
 
-//PUT endpoint
+//PUT endpoint för att uppdatera en låt i spellistan
 
 
 export default router;

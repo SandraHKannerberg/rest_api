@@ -6,6 +6,7 @@ import songsRoutes from './routes/songs.js';
 const app = express();
 const PORT = 3000;
 
+app.use(express.json());
 app.use(bodyParser.json()); //vi kan använda json-data
 app.use('/songs', songsRoutes);
 
