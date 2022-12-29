@@ -1,0 +1,13 @@
+GET http://localhost:3000/songs
+
+###
+
+POST http://localhost:3000/songs
+Content-Type: application/json
+
+{
+    "title": "Jul Jul Strålande Jul",
+    "artist": "Linnea Henriksson",
+    "genre": "Christmas",
+    "id": 3
+}
