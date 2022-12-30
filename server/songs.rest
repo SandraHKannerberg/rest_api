@@ -1,9 +1,11 @@
 GET http://localhost:3000/songs
+//HÄMTAR HELA SPELLISTAN
 
 ###
 
 POST http://localhost:3000/songs
 Content-Type: application/json
+//LÄGGER TILL NY LÅT
 
 {
     "title" : "All I Want For Christmas Is You",
@@ -14,15 +16,18 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/songs/4
+//HÄMTAR EN SPECIFIK LÅT. TESTAT MED ID 4
 
 ###
 
 DELETE http://localhost:3000/songs/5
+//RADERAR EN LÅT. TESTAT MED LÅT ID 5
 
 ###
 
 PATCH http://localhost:3000/songs/6
 Content-Type: application/json
+//UPPDATERAR EN LÅT. TESTAT MED LÅT ID 6
 
 {
     "artist": "Wham!"
