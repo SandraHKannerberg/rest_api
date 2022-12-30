@@ -4,7 +4,7 @@ import fs from 'fs';
 
 const router = express.Router();
 
-//alla endpoints här lyssnar till /songs
+//Alla endpoints här lyssnar till route /songs
 
 router.get('/', (req, res) => {
     fs.readFile("songs.json", function (err, data){
@@ -97,9 +97,35 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+//PATCH endpoint för att uppdatera en låt i spellistan
+router.patch('/:id', (req, res) => {
 
+    fs.readFile("songs.json", function (err, data){
 
-//PUT endpoint för att uppdatera en låt i spellistan
+        if(err){
+            console.log(err);
+            res.status(404).send("Filen du försöker nå finns inte")
+        }
 
+    let songs = JSON.parse(data)
+
+    const { id } = req.params;
+    const { title, artist, genre} = req.body;
+
+    const song = songs.find((song) => song.id === id);
+
+    if(title) song.title = title;
+    if(artist) song.artist = artist;
+    if(genre) song.genre = genre;
+
+    fs.writeFile("songs.json", JSON.stringify(songs, null, 2), function(err){
+        if(err){
+            console.log(err);
+        }
+    })
+
+    res.send("Update successful");
+    });
+});
 
 export default router;
