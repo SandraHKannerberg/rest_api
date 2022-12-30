@@ -6,6 +6,7 @@ const router = express.Router();
 
 //Alla endpoints här lyssnar till route /songs
 
+//GET endpoint som hämtar hela spellistan
 router.get('/', (req, res) => {
     fs.readFile("songs.json", function (err, data){
 
@@ -49,7 +50,7 @@ router.post('/', function(req, res, next){
 });
 
 
-//GET endpoint med id för att få fram en specifik låt
+//GET endpoint med id för att hämta en specifik låt
 router.get('/:id', (req, res) => {
 
     fs.readFile("songs.json", function (err, data){
@@ -64,7 +65,11 @@ router.get('/:id', (req, res) => {
     const { id } = req.params;
 
     const foundSong = songs.find((song) => song.id === id);
-    //Hittar id men ger inget felmeddelande om id inte finns. Hur löser man det?
+
+        if(!foundSong){
+            console.log(err);
+            res.status(404).send("Låten du försöker nå finns inte")
+        }
 
     res.send(foundSong);
     });
@@ -85,15 +90,22 @@ router.delete('/:id', (req, res) => {
 
     const { id } = req.params;
 
-    songs = songs.filter((song) => song.id !== id);
+    const song = songs.find((song) => song.id === id);
 
-    fs.writeFile("songs.json", JSON.stringify(songs, null, 2), function(err){
-        if(err){
-            console.log(err);
+    if(!song) {
+        res.status(404).send("Låten du försöker radera finns inte");
+    } else {
+        songs = songs.filter((song) => song.id !== id);
+
+        fs.writeFile("songs.json", JSON.stringify(songs, null, 2), function(err){
+
+            if(err){
+                console.log(err);
+            }
+        });
+    
+        res.send("Deleted from playlist");
         }
-    })
-
-    res.send("Deleted from playlist");
     });
 });
 
@@ -114,6 +126,8 @@ router.patch('/:id', (req, res) => {
 
     const song = songs.find((song) => song.id === id);
 
+    if(!song) res.status(404).send("Låten du försöker uppdatera finns inte");
+    
     if(title) song.title = title;
     if(artist) song.artist = artist;
     if(genre) song.genre = genre;
