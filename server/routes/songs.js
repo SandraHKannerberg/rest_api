@@ -4,7 +4,7 @@ import fs from 'fs';
 
 const router = express.Router();
 
-let songs = [];
+//let songs = [];
 
 //alla endpoints här lyssnar till /songs
 
@@ -33,14 +33,47 @@ router.get('/', (req, res) => {
 
 
 //POST endpoint för att lägga till en låt till spellistan (Vi skickar data från frontend till servern)
-router.post('/', (req, res) => {
+//DENNA FRUNGERAR I REST CLIENT MEN ÄR INTE KOPPLAD TILL JSON-FILEN
+/*router.post('/', (req, res) => {
    
     const newSong = req.body;
 
     songs.push({ ...newSong, id: uuidv4()});
 
     res.send(`${newSong.title} is added to the playlist`);
-});
+});*/
+
+//DENNA POST FUNGERAR INTE
+/*router.post('/', (req, res) => {
+
+    //const newSong = req.body;
+
+    fs.readFile("songs.json", function(err, data){
+        if(err){
+            console.log(err);
+        }
+
+        const songs = JSON.parse(data)
+
+        const newSong = 
+        {
+            "title": "Jul Igen",
+            "artist": "Just D",
+            "genre": "Christmas"
+        }
+
+        songs.push(newSong);
+
+        fs.writeFile("songs.json", JSON.stringify(songs, null, 2), function(err){
+            if(err){
+                console.log(err);
+            }
+        })
+
+        res.send(songs);
+        return;
+    });
+});*/
 
 //GET endpoint med id för att få fram en specifik låt
 router.get('/:id', (req, res) => {

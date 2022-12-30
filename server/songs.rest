@@ -5,23 +5,6 @@ GET http://localhost:3000/songs
 POST http://localhost:3000/songs
 Content-Type: application/json
 
-{
-    "title": "Jul Igen",
-    "artist": "Just D",
-    "genre": "Christmas"
-}
-
-###
-
-POST http://localhost:3000/songs
-Content-Type: application/json
-
-{
-    "title": "Jul Jul Strålande Jul",
-    "artist": "Linnea Henriksson",
-    "genre": "Christmas"
-}
-
 ###
 
 GET http://localhost:3000/songs/:id
