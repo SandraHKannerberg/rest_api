@@ -4,16 +4,7 @@ import fs from 'fs';
 
 const router = express.Router();
 
-//let songs = [];
-
 //alla endpoints här lyssnar till /songs
-
-/*GET endpoint för hela spellistan
-router.get('/', (req, res) => {
-    console.log(songs);
-
-    res.send(songs);
-});*/
 
 router.get('/', (req, res) => {
     fs.readFile("songs.json", function (err, data){
@@ -31,19 +22,6 @@ router.get('/', (req, res) => {
     });
 });
 
-
-//POST endpoint för att lägga till en låt till spellistan (Vi skickar data från frontend till servern)
-//DENNA FRUNGERAR I REST CLIENT MEN ÄR INTE KOPPLAD TILL JSON-FILEN
-/*router.post('/', (req, res) => {
-   
-    const newSong = req.body;
-
-    songs.push({ ...newSong, id: uuidv4()});
-
-    res.send(`${newSong.title} is added to the playlist`);
-});*/
-
-
 //POST endpoint för att lägga till en låt till spellistan (Vi skickar data från frontend till servern)
 router.post('/', function(req, res, next){
 
@@ -56,7 +34,7 @@ router.post('/', function(req, res, next){
 
         let newSong = req.body;
 
-        songs.push({ ...newSong, id: uuidv4()});
+        songs.push({ ...newSong, id: uuidv4()}); //Får ett unikt id
 
 
         fs.writeFile("songs.json", JSON.stringify(songs, null, 2), function(err){
@@ -92,16 +70,6 @@ router.get('/:id', (req, res) => {
     });
 });
 
-//DELETE endpoint för att radera en låt från spellistan
-//Denna fungerar mot hårdkodning av array. Inte mot json-fil
-/*router.delete('/:id', (req, res) => {
-
-    const { id } = req.params;
-
-    songs = songs.filter((song) => song.id !== id);
-
-    res.send("Deleted from playlist");
-});*/
 
 //DELETE endpoint för att radera en låt från spellistan
 router.delete('/:id', (req, res) => {
@@ -118,6 +86,12 @@ router.delete('/:id', (req, res) => {
     const { id } = req.params;
 
     songs = songs.filter((song) => song.id !== id);
+
+    fs.writeFile("songs.json", JSON.stringify(songs, null, 2), function(err){
+        if(err){
+            console.log(err);
+        }
+    })
 
     res.send("Deleted from playlist");
     });
