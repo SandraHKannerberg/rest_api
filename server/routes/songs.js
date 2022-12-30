@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
         res.send(songs);
         return;
     });
-})
+});
 
 
 //POST endpoint för att lägga till en låt till spellistan (Vi skickar data från frontend till servern)
@@ -43,10 +43,9 @@ router.get('/', (req, res) => {
     res.send(`${newSong.title} is added to the playlist`);
 });*/
 
-//DENNA POST FUNGERAR INTE
-/*router.post('/', (req, res) => {
 
-    //const newSong = req.body;
+//POST endpoint för att lägga till en låt till spellistan (Vi skickar data från frontend till servern)
+router.post('/', function(req, res, next){
 
     fs.readFile("songs.json", function(err, data){
         if(err){
@@ -55,14 +54,10 @@ router.get('/', (req, res) => {
 
         const songs = JSON.parse(data)
 
-        const newSong = 
-        {
-            "title": "Jul Igen",
-            "artist": "Just D",
-            "genre": "Christmas"
-        }
+        let newSong = req.body;
 
-        songs.push(newSong);
+        songs.push({ ...newSong, id: uuidv4()});
+
 
         fs.writeFile("songs.json", JSON.stringify(songs, null, 2), function(err){
             if(err){
@@ -73,25 +68,62 @@ router.get('/', (req, res) => {
         res.send(songs);
         return;
     });
-});*/
+});
+
 
 //GET endpoint med id för att få fram en specifik låt
 router.get('/:id', (req, res) => {
+
+    fs.readFile("songs.json", function (err, data){
+
+        if(err){
+            console.log(err);
+            res.status(404).send("Filen du försöker nå finns inte")
+        }
+
+    const songs = JSON.parse(data)
+
     const { id } = req.params;
 
     const foundSong = songs.find((song) => song.id === id);
+    //Hittar id men ger inget felmeddelande om id inte finns. Hur löser man det?
 
     res.send(foundSong);
+    });
 });
 
 //DELETE endpoint för att radera en låt från spellistan
-router.delete('/:id', (req, res) => {
+//Denna fungerar mot hårdkodning av array. Inte mot json-fil
+/*router.delete('/:id', (req, res) => {
+
     const { id } = req.params;
 
     songs = songs.filter((song) => song.id !== id);
 
     res.send("Deleted from playlist");
+});*/
+
+//DELETE endpoint för att radera en låt från spellistan
+router.delete('/:id', (req, res) => {
+
+    fs.readFile("songs.json", function (err, data){
+
+        if(err){
+            console.log(err);
+            res.status(404).send("Filen du försöker nå finns inte")
+        }
+
+    let songs = JSON.parse(data)
+
+    const { id } = req.params;
+
+    songs = songs.filter((song) => song.id !== id);
+
+    res.send("Deleted from playlist");
+    });
 });
+
+
 
 //PUT endpoint för att uppdatera en låt i spellistan
 

@@ -5,11 +5,17 @@ GET http://localhost:3000/songs
 POST http://localhost:3000/songs
 Content-Type: application/json
 
+{
+    "title" : "All I Want For Christmas Is You",
+    "artist": "Maria Carey",
+    "genre" : "Christmas"
+}
+
 ###
 
-GET http://localhost:3000/songs/:id
+GET http://localhost:3000/songs/4
 
 ###
 
-DELETE http://localhost:3000/songs/:id
+DELETE http://localhost:3000/songs/5
 

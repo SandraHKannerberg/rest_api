@@ -1,32 +1,44 @@
 [
-    {
-        "id": "1",
-        "title": "Hey Ho",
-        "artist": "Freddy Kalas",
-        "genre": "Christmas"
-    },
-    {
-        "id": "2",
-        "title": "Stilla Natt",
-        "artist": "Carola",
-        "genre": "Christmas"
-    },
-    {
-        "id": "3",
-        "title": "Happy New Year",
-        "artist": "LOVA",
-        "genre": "Christmas"
-    },
-    {
-        "id": "4",
-        "title": "Jul, Jul Strålande Jul",
-        "artist": "Linnea Henriksson",
-        "genre": "Christmas"
-    },
-    {
-        "id": "5",
-        "title": "Juligen",
-        "artist": "Just D",
-        "genre": "Christmas"
-    }
+  {
+    "id": "1",
+    "title": "Hey Ho",
+    "artist": "Freddy Kalas",
+    "genre": "Christmas"
+  },
+  {
+    "id": "2",
+    "title": "Stilla Natt",
+    "artist": "Carola",
+    "genre": "Christmas"
+  },
+  {
+    "id": "3",
+    "title": "Happy New Year",
+    "artist": "LOVA",
+    "genre": "Christmas"
+  },
+  {
+    "id": "4",
+    "title": "Jul, Jul Strålande Jul",
+    "artist": "Linnea Henriksson",
+    "genre": "Christmas"
+  },
+  {
+    "id": "5",
+    "title": "Juligen",
+    "artist": "Just D",
+    "genre": "Christmas"
+  },
+  {
+    "id": "6",
+    "title": "Last Christmas",
+    "artist": "Wham!",
+    "genre": "Christmas"
+  },
+  {
+    "title": "All I Want For Christmas Is You",
+    "artist": "Maria Carey",
+    "genre": "Christmas",
+    "id": "55da0c7e-f535-47de-9dec-9df39e0804d7"
+  }
 ]
