@@ -8,8 +8,8 @@ Content-Type: application/json
 //LÄGGER TILL NY LÅT
 
 {
-    "title" : "All I Want For Christmas Is You",
-    "artist": "Maria Carey",
+    "title" : "Tänd Ett Ljus",
+    "artist": "Triad",
     "genre" : "Christmas"
 }
 
@@ -20,7 +20,7 @@ GET http://localhost:3000/songs/4
 
 ###
 
-DELETE http://localhost:3000/songs/5
+DELETE http://localhost:3000/songs/1d560e2b-eea7-42e1-8bb7-88fa10980671
 //RADERAR EN LÅT. TESTAT MED LÅT ID 5
 
 ###

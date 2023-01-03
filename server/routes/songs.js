@@ -4,6 +4,8 @@ import fs from 'fs';
 
 const router = express.Router();
 
+//GÅ IGENOM KODEN OCH SE TILL ATT ALLA MEDDELANDEN ÄR PÅ SAMMA SPRÅK. VÄLJ ANTINGEN SVENSKA ELLER ENGELSKA
+
 //Alla endpoints här lyssnar till route /songs
 
 //GET endpoint som hämtar hela spellistan
@@ -35,8 +37,11 @@ router.post('/', function(req, res, next){
 
         let newSong = req.body;
 
-        songs.push({ ...newSong, id: uuidv4()}); //Får ett unikt id
+        if(!req.body.title) {
+            res.status(404).send("Det gick inte att lägga till låten i spellistan, vänligen skriv en titel.");
+        } else {
 
+        songs.push({ ...newSong, id: uuidv4()}); //Får ett unikt id
 
         fs.writeFile("songs.json", JSON.stringify(songs, null, 2), function(err){
             if(err){
@@ -44,11 +49,11 @@ router.post('/', function(req, res, next){
             }
         })
 
-        res.send(songs);
+        res.status(201).send(newSong);
         return;
+        }
     });
 });
-
 
 //GET endpoint med id för att hämta en specifik låt
 router.get('/:id', (req, res) => {
@@ -66,11 +71,8 @@ router.get('/:id', (req, res) => {
 
     const foundSong = songs.find((song) => song.id === id);
 
-        if(!foundSong){
-            console.log(err);
-            res.status(404).send("Låten du försöker nå finns inte")
-        }
-
+    if(!foundSong) res.status(404).send("Låten du försöker nå finns inte");
+        
     res.send(foundSong);
     });
 });
@@ -104,7 +106,7 @@ router.delete('/:id', (req, res) => {
             }
         });
     
-        res.send("Deleted from playlist");
+        res.send("Raderad från spellistan");
         }
     });
 });
@@ -122,7 +124,7 @@ router.patch('/:id', (req, res) => {
     let songs = JSON.parse(data)
 
     const { id } = req.params;
-    const { title, artist, genre} = req.body;
+    const { title, artist, genre } = req.body;
 
     const song = songs.find((song) => song.id === id);
 
@@ -138,7 +140,7 @@ router.patch('/:id', (req, res) => {
         }
     })
 
-    res.send("Update successful");
+    res.status(201).send("Uppdatering slutförd");
     });
 });
 
