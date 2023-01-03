@@ -5,6 +5,7 @@ import fs from 'fs';
 const router = express.Router();
 
 //GÅ IGENOM KODEN OCH SE TILL ATT ALLA MEDDELANDEN ÄR PÅ SAMMA SPRÅK. VÄLJ ANTINGEN SVENSKA ELLER ENGELSKA
+//SKA JAG JUSTERA STARTEN FÖR ALLA ENDPOINTS TILL /API INNAN /SONGS????
 
 //Alla endpoints här lyssnar till route /songs
 
