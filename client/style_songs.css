@@ -7,11 +7,31 @@ body {
 
 .header {
     padding: 5px 30px;
-    font-size: 3rem;
+    font-size: 1.5rem;
     text-align: center;
     min-height: 50px;
     color:  brown;
     text-shadow: whitesmoke 5px 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addBtn {
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    background-color: brown;
+    border: none;
+    padding: 20px;
+    color: white;
+    border-radius: 6px;
+    width: 150px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .playlistContainer {

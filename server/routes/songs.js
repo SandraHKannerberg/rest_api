@@ -107,7 +107,8 @@ router.delete('/:id', (req, res) => {
                 console.log(err);
             }
         });
-    
+
+        res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
         res.send("Raderad från spellistan");
         }
     });
