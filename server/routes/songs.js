@@ -21,6 +21,7 @@ router.get('/', (req, res) => {
         const songs = JSON.parse(data)
 
         console.log(data);
+        res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
         res.send(songs);
         return;
     });
