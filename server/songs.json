@@ -24,6 +24,12 @@
     "genre": "Christmas"
   },
   {
+    "id": "6",
+    "title": "Last Christmas",
+    "artist": "Wham!",
+    "genre": "Christmas"
+  },
+  {
     "title": "Juligen",
     "artist": "JustD",
     "genre": "Christmas",
@@ -40,5 +46,17 @@
     "artist": "Triad",
     "genre": "Christmas",
     "id": "c8899589-297c-430c-b8f6-bcaed28bc8f9"
+  },
+  {
+    "title": "Tänd Ett Ljus",
+    "artist": "Triad",
+    "genre": "Christmas",
+    "id": "a2e91fe2-26aa-4142-9e64-4fcd5bf22d17"
+  },
+  {
+    "title": "Tänd Ett Ljus",
+    "artist": "Triad",
+    "genre": "Christmas",
+    "id": "4fe7fee5-8437-4ae9-a452-ed4b6292363b"
   }
 ]

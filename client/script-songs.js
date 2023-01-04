@@ -11,6 +11,8 @@ function getDataWithThen(){
     })
     .then(function (data) {
 
+        console.log(data);
+
         for (const song of data) {
             //SKAPAR VARJE "LÅTBOX"
             const songContainer = document.createElement("div")
@@ -61,6 +63,9 @@ function getDataWithThen(){
             delBtn.classList.add("delBtn");
             delBtn.innerText = "Delete";
             btnContainer.appendChild(delBtn);
+
+            //delBtn.addEventListener("click", deleteMethod)
+
         };
     })
     .catch(function (err) {
@@ -69,3 +74,18 @@ function getDataWithThen(){
 }
 
 getDataWithThen();
+
+/*function updateDataById(){
+    fetch("http://localhost:3000/songs/update/6")
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    })
+    .catch(function (err) {
+        console.log(err);
+    });
+}
+
+updateDataById();*/

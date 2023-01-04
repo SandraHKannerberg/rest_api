@@ -21,6 +21,7 @@ router.get('/', (req, res) => {
         const songs = JSON.parse(data)
 
         console.log(data);
+        
         res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
         res.send(songs);
         return;
@@ -95,7 +96,7 @@ router.delete('/:id', (req, res) => {
     const { id } = req.params;
 
     const song = songs.find((song) => song.id === id);
-
+  
     if(!song) {
         res.status(404).send("Låten du försöker radera finns inte");
     } else {
@@ -108,7 +109,6 @@ router.delete('/:id', (req, res) => {
             }
         });
 
-        res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
         res.send("Raderad från spellistan");
         }
     });
