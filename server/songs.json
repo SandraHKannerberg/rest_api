@@ -1,27 +1,9 @@
 [
   {
-    "id": "3",
-    "title": "Happy New Year",
-    "artist": "LOVA",
-    "genre": "Christmas"
-  },
-  {
-    "id": "4",
-    "title": "Jul, Jul Strålande Jul",
-    "artist": "Linnea Henriksson",
-    "genre": "Christmas"
-  },
-  {
     "title": "Juligen",
     "artist": "JustD",
     "genre": "Christmas",
     "id": "f2822a94-bba4-4b29-9e99-ef197538b25e"
-  },
-  {
-    "title": "All I Want For Christmas Is You",
-    "artist": "Maria Carey",
-    "genre": "Christmas",
-    "id": "ce853b0b-08e7-4aa5-972e-aa9c1502f7d5"
   },
   {
     "title": "Tänd Ett Ljus",

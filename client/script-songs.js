@@ -64,18 +64,32 @@ function getDataWithThen(){
             delBtn.innerText = "Delete";
             btnContainer.appendChild(delBtn);
 
-            delBtn.addEventListener("click", deleteData)
+            delBtn.addEventListener("click", () => {
 
-        };
+            const id = song.id;
+            const url = "http://localhost:3000/songs/" + id
+
+            const deleteMethod = {
+            method: 'DELETE', // Method itself
+            headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            //'Content-type': 'text/html; charset=UTF-8' //FELMEDDELANDE 404 BLIR SYNTAX FEL. HUR LÖSER MAN DET?
+            },
+            }
+
+            fetch(url, deleteMethod) 
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+
+            });
+        }
     })
-    .catch(function (err) {
-        console.log(err);
-    });
 }
 
 getDataWithThen();
 
-function deleteData() {
+/*function deleteData() {
 //RADERAR EN LÅT. TESTAT MED LÅT ID 2
 const url = "http://localhost:3000/songs/2"//HUR FÅ DETTA DYNAMISKT????
 
@@ -91,4 +105,4 @@ const deleteMethod = {
    .then(response => response.json())
    .then(data => console.log(data))
    .catch(err => console.log(err))
-}
+}*/
