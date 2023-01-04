@@ -52,22 +52,16 @@ function getDataWithThen(){
             btnContainer.classList.add("btnContainer");
             songContainer.appendChild(btnContainer);
 
-            //KNAPP FÖR ATT UPPDATERA SPELLISTAN
-            const updateBtn = document.createElement("button"); 
-            updateBtn.classList.add("updateBtn");
-            updateBtn.innerText = "Uppdatera";
-            btnContainer.appendChild(updateBtn);
-
             //KNAPP FÖR ATT RADERA EN LÅT FRÅN SPELLISTAN
             const delBtn = document.createElement("button"); 
             delBtn.classList.add("delBtn");
             delBtn.innerText = "Delete";
             btnContainer.appendChild(delBtn);
 
-            delBtn.addEventListener("click", () => {
+            delBtn.addEventListener("click", () => { //ADDERA NÅGON FORMA AV BEKRÄFTELSE ATT DET ÄR GENOMFÖRT
 
             const id = song.id;
-            const url = "http://localhost:3000/songs/" + id
+            const url = `http://localhost:3000/songs/${id}`
 
             const deleteMethod = {
             method: 'DELETE', // Method itself
@@ -89,20 +83,25 @@ function getDataWithThen(){
 
 getDataWithThen();
 
-/*function deleteData() {
-//RADERAR EN LÅT. TESTAT MED LÅT ID 2
-const url = "http://localhost:3000/songs/2"//HUR FÅ DETTA DYNAMISKT????
+function update(id){//FUNKTIONEN FUNGERAR MEN JAG VILL KOPPLA DEN TILL EN FORM OCH ATT DETTA KÖRS VIA UPPDATERA KNAPPEN
 
-const deleteMethod = {
-    method: 'DELETE', // Method itself
+    const url = `http://localhost:3000/songs/${id}`
+
+    const patchMethod = {
+    method: 'PATCH', // Method itself
     headers: {
-     'Content-type': 'application/json; charset=UTF-8',
-     //'Content-type': 'text/html; charset=UTF-8'
+    'Content-type': 'application/json; charset=UTF-8',
+    //'Content-type': 'text/html; charset=UTF-8' //FELMEDDELANDE 404 BLIR SYNTAX FEL. HUR LÖSER MAN DET?
     },
-   }
+    body: JSON.stringify({
+        title: "Jul igen",
+      }),
+    }
 
-   fetch(url, deleteMethod) 
-   .then(response => response.json())
-   .then(data => console.log(data))
-   .catch(err => console.log(err))
-}*/
+    fetch(url, patchMethod) 
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+}
+
+update(5);

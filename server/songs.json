@@ -1,20 +1,20 @@
 [
   {
-    "title": "Juligen",
-    "artist": "JustD",
-    "genre": "Christmas",
-    "id": "f2822a94-bba4-4b29-9e99-ef197538b25e"
+    "id": "1",
+    "title": "Hey Ho",
+    "artist": "Freddy Kalas",
+    "genre": "Christmas"
   },
   {
-    "title": "Tänd Ett Ljus",
-    "artist": "Triad",
-    "genre": "Christmas",
-    "id": "c8899589-297c-430c-b8f6-bcaed28bc8f9"
+    "id": "4",
+    "title": "Jul, Jul Strålande Jul",
+    "artist": "Linnea Henriksson",
+    "genre": "Christmas"
   },
   {
-    "title": "Tänd Ett Ljus",
-    "artist": "Triad",
-    "genre": "Christmas",
-    "id": "a2e91fe2-26aa-4142-9e64-4fcd5bf22d17"
+    "id": "5",
+    "title": "Jul igen",
+    "artist": "Just D",
+    "genre": "Christmas"
   }
 ]

@@ -1,7 +1,11 @@
 const body = document.querySelector("body");
+const form = document.querySelector("form");
+const titleInput = document.getElementById("#title");
+const artistInput = document.getElementById("#artist");
+const genreInput = document.getElementById("#genre");
 
-function getDataByIdWithThen(){
-    fetch("http://localhost:3000/songs/4")
+function getDataByIdWithThen(id){
+    fetch(`http://localhost:3000/songs/${id}`)
     .then(function (response) {
         return response.json();
     })
@@ -27,11 +31,7 @@ function getDataByIdWithThen(){
             songContainer.appendChild(title)
             songContainer.appendChild(artist)
             songContainer.appendChild(genre)
-
-    })
-    .catch(function (err) {
-        console.log(err);
-    });
+        })
 }
 
-getDataByIdWithThen();
+getDataByIdWithThen(5);

@@ -15,7 +15,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/songs/4
+GET http://localhost:3000/songs/5
 //HÄMTAR EN SPECIFIK LÅT. TESTAT MED ID 4
 
 ###
@@ -25,7 +25,7 @@ DELETE http://localhost:3000/songs/4fe7fee5-8437-4ae9-a452-ed4b6292363b
 
 ###
 
-PATCH http://localhost:3000/songs/6
+PATCH http://localhost:3000/songs/f2822a94-bba4-4b29-9e99-ef197538b25e
 Content-Type: application/json
 //UPPDATERAR EN LÅT. TESTAT MED LÅT ID 6
 
