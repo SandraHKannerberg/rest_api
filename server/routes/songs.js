@@ -1,8 +1,10 @@
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid'; //Ger unikt id till varje låt
 import fs from 'fs';
+import cors from 'cors';
 
 const router = express.Router();
+router.use(cors());
 
 //GÅ IGENOM KODEN OCH SE TILL ATT ALLA MEDDELANDEN ÄR PÅ SAMMA SPRÅK. VÄLJ ANTINGEN SVENSKA ELLER ENGELSKA
 //SKA JAG JUSTERA STARTEN FÖR ALLA ENDPOINTS TILL /API INNAN /SONGS????
@@ -22,7 +24,6 @@ router.get('/', (req, res) => {
 
         console.log(data);
         
-        res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
         res.send(songs);
         return;
     });
@@ -109,7 +110,10 @@ router.delete('/:id', (req, res) => {
             }
         });
 
-        res.send("Raderad från spellistan");
+        let jsonData = {"Message":"Raderad från spellistan"}
+
+        //res.send("Raderad från spellistan");
+        res.json(jsonData);
         }
     });
 });

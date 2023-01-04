@@ -1,17 +1,5 @@
 [
   {
-    "id": "1",
-    "title": "Hey Ho",
-    "artist": "Freddy Kalas",
-    "genre": "Christmas"
-  },
-  {
-    "id": "2",
-    "title": "Stilla Natt",
-    "artist": "Carola",
-    "genre": "Christmas"
-  },
-  {
     "id": "3",
     "title": "Happy New Year",
     "artist": "LOVA",
@@ -21,12 +9,6 @@
     "id": "4",
     "title": "Jul, Jul Strålande Jul",
     "artist": "Linnea Henriksson",
-    "genre": "Christmas"
-  },
-  {
-    "id": "6",
-    "title": "Last Christmas",
-    "artist": "Wham!",
     "genre": "Christmas"
   },
   {
@@ -52,11 +34,5 @@
     "artist": "Triad",
     "genre": "Christmas",
     "id": "a2e91fe2-26aa-4142-9e64-4fcd5bf22d17"
-  },
-  {
-    "title": "Tänd Ett Ljus",
-    "artist": "Triad",
-    "genre": "Christmas",
-    "id": "4fe7fee5-8437-4ae9-a452-ed4b6292363b"
   }
 ]

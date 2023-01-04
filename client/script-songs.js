@@ -64,7 +64,7 @@ function getDataWithThen(){
             delBtn.innerText = "Delete";
             btnContainer.appendChild(delBtn);
 
-            //delBtn.addEventListener("click", deleteMethod)
+            delBtn.addEventListener("click", deleteData)
 
         };
     })
@@ -75,17 +75,22 @@ function getDataWithThen(){
 
 getDataWithThen();
 
-/*function updateDataById(){
-    fetch("http://localhost:3000/songs/update/6")
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
-    })
-    .catch(function (err) {
-        console.log(err);
-    });
-}
 
-updateDataById();*/
+function deleteData() {
+//RADERAR EN LÅT. TESTAT MED LÅT ID 2
+const url = "http://localhost:3000/songs/2"
+
+const deleteMethod = {
+    method: 'DELETE', // Method itself
+    headers: {
+     'Content-type': 'application/json; charset=UTF-8',
+     'Content-type': 'text/html; charset=UTF-8'  // Indicates the content 
+    },
+    // No need to have body, because we don't send nothing to the server.
+   }
+   // Make the HTTP Delete call using fetch api
+   fetch(url, deleteMethod) 
+   .then(response => response.json())
+   .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
+   .catch(err => console.log(err)) // Do something with the error
+}
