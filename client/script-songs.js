@@ -75,22 +75,20 @@ function getDataWithThen(){
 
 getDataWithThen();
 
-
 function deleteData() {
 //RADERAR EN LÅT. TESTAT MED LÅT ID 2
-const url = "http://localhost:3000/songs/2"
+const url = "http://localhost:3000/songs/2"//HUR FÅ DETTA DYNAMISKT????
 
 const deleteMethod = {
     method: 'DELETE', // Method itself
     headers: {
      'Content-type': 'application/json; charset=UTF-8',
-     'Content-type': 'text/html; charset=UTF-8'  // Indicates the content 
+     //'Content-type': 'text/html; charset=UTF-8'
     },
-    // No need to have body, because we don't send nothing to the server.
    }
-   // Make the HTTP Delete call using fetch api
+
    fetch(url, deleteMethod) 
    .then(response => response.json())
-   .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
-   .catch(err => console.log(err)) // Do something with the error
+   .then(data => console.log(data))
+   .catch(err => console.log(err))
 }
