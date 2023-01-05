@@ -53,12 +53,15 @@ function getDataWithThen(){
 
             const inputTitle = document.createElement("input")
             inputTitle.classList.add("inputTitle");
-
+            inputTitle.setAttribute("placeholder", "Uppdatera Titel");
+           
             const inputArtist = document.createElement("input")
             inputArtist.classList.add("inputArtist");
+            inputArtist.setAttribute("placeholder", "Uppdatera Artist");
 
             const inputGenre = document.createElement("input")
             inputGenre.classList.add("inputGenre");
+            inputGenre.setAttribute("placeholder", "Uppdatera Genre");
 
             updateForm.appendChild(inputTitle)
             updateForm.appendChild(inputArtist)
@@ -78,13 +81,13 @@ function getDataWithThen(){
             btnContainer.appendChild(delBtn);
 
             //EVENTLISTENER FÖR DELETE SOM KOPPLAS TILL DELETE METHOD
-            delBtn.addEventListener("click", () => { //ADDERA NÅGON FORMA AV BEKRÄFTELSE ATT DET ÄR GENOMFÖRT
+            delBtn.addEventListener("click", () => {
 
             const id = song.id;
             const url = `http://localhost:3000/songs/${id}`
 
             const deleteMethod = {
-            method: 'DELETE', // Method itself
+            method: 'DELETE',
             headers: {
             'Content-type': 'application/json; charset=UTF-8',
             //'Content-type': 'text/html; charset=UTF-8' //FELMEDDELANDE 404 BLIR SYNTAX FEL. HUR LÖSER MAN DET?
@@ -106,13 +109,13 @@ function getDataWithThen(){
             btnContainer.appendChild(updateBtn);
 
              //EVENTLISTENER FÖR UPPDATERING SOM KOPPLAS TILL PATCH METHOD
-            updateBtn.addEventListener("click", () => { //ADDERA NÅGON FORMA AV BEKRÄFTELSE ATT DET ÄR GENOMFÖRT
+            updateBtn.addEventListener("click", () => {
 
             const id = song.id;
             const url = `http://localhost:3000/songs/${id}`
 
             const patchMethod = {
-            method: 'PATCH', // Method itself
+            method: 'PATCH',
             headers: {
             'Content-type': 'application/json; charset=UTF-8',
             //'Content-type': 'text/html; charset=UTF-8' //FELMEDDELANDE 404 BLIR SYNTAX FEL. HUR LÖSER MAN DET?
