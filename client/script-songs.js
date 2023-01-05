@@ -4,6 +4,14 @@ playlistContainer.classList.add("playlistContainer");
 
 container.appendChild(playlistContainer);
 
+const addBtn = document.querySelector(".addBtn");
+
+addBtn.addEventListener("click", walkToAdd)
+
+function walkToAdd() {
+      window.location.href="/add-song.html"
+}
+  
 function getDataWithThen(){
     fetch("http://localhost:3000/songs")
     .then(function (response) {
@@ -74,6 +82,42 @@ function getDataWithThen(){
             btnContainer.classList.add("btnContainer");
             songContainer.appendChild(btnContainer);
 
+            //KNAPP FÖR MER INFO OM LÅTEN
+            const infoBtn = document.createElement("button"); 
+            infoBtn.classList.add("infoBtn");
+            infoBtn.innerText = "Mer info";
+            btnContainer.appendChild(infoBtn);
+
+            //EVENTLISTENER FÖR MER INFO SOM KOPPLAS TILL GET METHOD MED SPECIFIKT ID
+            infoBtn.addEventListener("click", () => { 
+
+            const id = song.id;
+            const url = `http://localhost:3000/songs/${id}`
+
+            fetch(url)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data);
+
+                    const infoContainer = document.createElement("div");
+                    infoContainer.classList.add("infoContainer");
+                    songContainer.appendChild(infoContainer);
+
+                    const time = document.createElement("p")
+                    time.classList.add("time");
+                    time.textContent = "Låtens längd: " + data.time;
+
+                    const release = document.createElement("p")
+                    release.classList.add("release");
+                    release.textContent = "Släpptes år: " + data.release;
+        
+                    infoContainer.appendChild(time)
+                    infoContainer.appendChild(release)
+                })
+            });
+
             //KNAPP FÖR ATT RADERA EN LÅT FRÅN SPELLISTAN
             const delBtn = document.createElement("button"); 
             delBtn.classList.add("delBtn");
@@ -133,42 +177,6 @@ function getDataWithThen(){
             .catch(err => console.log(err))
 
             alert("Låten är nu uppdaterad");
-            });
-
-            //KNAPP FÖR MER INFO OM LÅTEN
-            const infoBtn = document.createElement("button"); 
-            infoBtn.classList.add("infoBtn");
-            infoBtn.innerText = "Mer info";
-            btnContainer.appendChild(infoBtn);
-
-            //EVENTLISTENER FÖR MER INFO SOM KOPPLAS TILL GET METHOD MED SPECIFIKT ID
-            infoBtn.addEventListener("click", () => { 
-
-            const id = song.id;
-            const url = `http://localhost:3000/songs/${id}`
-
-            fetch(url)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                console.log(data);
-
-                    const infoContainer = document.createElement("div");
-                    infoContainer.classList.add("infoContainer");
-                    songContainer.appendChild(infoContainer);
-
-                    const time = document.createElement("p")
-                    time.classList.add("time");
-                    time.textContent = "Låtens längd: " + data.time;
-
-                    const release = document.createElement("p")
-                    release.classList.add("release");
-                    release.textContent = "Släpptes år: " + data.release;
-        
-                    infoContainer.appendChild(time)
-                    infoContainer.appendChild(release)
-                })
             });
         }
     })

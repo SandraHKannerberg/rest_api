@@ -6,9 +6,15 @@ const timeNew = document.getElementById("timeNew");
 const releaseNew = document.getElementById("releaseNew");
 
 const addBtn = document.getElementById("addBtn");
+const goToPlaylistBtn = document.getElementById("goToPlaylistBtn");
 
 addBtn.addEventListener("click", addANewSong)
 
+goToPlaylistBtn.addEventListener("click", walkToPlaylist)
+
+function walkToPlaylist() {
+      window.location.href="/songs.html"
+}
 
 function addANewSong(){
 
