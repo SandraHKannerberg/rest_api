@@ -1,11 +1,5 @@
 [
   {
-    "id": "1",
-    "title": "test",
-    "artist": "test",
-    "genre": "test"
-  },
-  {
     "id": "2",
     "title": "Stilla Natt",
     "artist": "Carola",
@@ -32,43 +26,11 @@
     "release": "1991"
   },
   {
-    "title": "Test post-method",
-    "artist": "Test post-method",
-    "genre": "Test post-method",
-    "time": "Test post-method",
-    "release": "Test post-method",
-    "id": "730164e7-330f-46ab-a781-a312b415b4d0"
-  },
-  {
-    "title": "Test post-method",
-    "artist": "Test post-method",
-    "genre": "Test post-method",
-    "time": "Test post-method",
-    "release": "Test post-method",
-    "id": "e1516bb9-b6a4-4805-890c-122830665abc"
-  },
-  {
-    "title": "post",
-    "artist": "post",
-    "genre": "post",
-    "time": "post",
-    "release": "post",
-    "id": "d70c5cb5-a6a9-464e-9d68-cd0c26eadee5"
-  },
-  {
-    "title": "post",
-    "artist": "post",
-    "genre": "post",
-    "time": "post",
-    "release": "post",
-    "id": "3f63c793-f509-45b3-8351-de25ac4937c3"
-  },
-  {
-    "title": "post",
-    "artist": "post",
-    "genre": "post",
-    "time": "post",
-    "release": "post",
-    "id": "f026c962-ec62-4ff5-a903-7a713c0ddaba"
+    "title": "All I Want For Christmas You",
+    "artist": "Maria Carey",
+    "genre": "Christmas",
+    "time": "4.01 min",
+    "release": "1994",
+    "id": "822769b2-fc99-4a9e-a19b-d515698bfa03"
   }
 ]

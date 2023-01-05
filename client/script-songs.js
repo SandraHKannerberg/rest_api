@@ -95,6 +95,8 @@ function getDataWithThen(){
             .then(res => res.json())
             .then(data => console.log(data))
             .catch(err => console.log(err))
+
+            alert("Låten är nu raderad från spellistan");
             });
 
             //KNAPP FÖR ATT UPPDATERA
@@ -126,6 +128,8 @@ function getDataWithThen(){
             .then(res => res.json())
             .then(data => console.log(data))
             .catch(err => console.log(err))
+
+            alert("Låten är nu uppdaterad");
             });
 
             //KNAPP FÖR MER INFO OM LÅTEN
@@ -162,11 +166,6 @@ function getDataWithThen(){
                     infoContainer.appendChild(time)
                     infoContainer.appendChild(release)
                 })
-
-
-
-
-
             });
         }
     })

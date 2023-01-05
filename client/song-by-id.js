@@ -34,4 +34,5 @@ function addANewSong(){
         .then(data => console.log(data))
         .catch(err => console.log(err))
 
+        alert("Ny låt är nu tillagd i spellistan");
     }
