@@ -1,47 +1,39 @@
 [
-{
+  {
     "title": "Hey Ho",
     "artist": "Freddy Kalas",
     "genre": "Christmas",
     "time": "2.56 min",
     "release": "2015",
     "id": "1"
-},
-{
+  },
+  {
     "title": "Stilla Natt",
     "artist": "Carola",
     "genre": "Christmas",
     "time": "3.21 min",
     "release": "1991",
     "id": "2"
-},
-{
-    "title": "Happy New Year",
-    "artist": "LOVA",
-    "genre": "Christmas",
-    "time": "3.04 min",
-    "release": "2021",
-    "id": "3"
-},
-{
+  },
+  {
     "title": "Jul, Jul Strålande Jul",
     "artist": "Linnea Henriksson",
     "genre": "Christmas",
     "time": "4.44min",
     "release": "2019",
     "id": "4"
-},
-{
+  },
+  {
     "title": "Juligen",
     "artist": "Just D",
     "genre": "Christmas",
     "time": "2.43 min",
     "release": "1991",
     "id": "5"
-},
-{
-    "title": "Last Christmas", 
-    "artist": "Wham!", 
+  },
+  {
+    "title": "Last Christmas",
+    "artist": "Wham!",
     "genre": "Christmas",
     "time": "4.38 min",
     "release": "1986",
@@ -54,5 +46,13 @@
     "time": "4.01 min",
     "release": "1994",
     "id": "822769b2-fc99-4a9e-a19b-d515698bfa03"
+  },
+  {
+    "title": "Tänd Ett Ljus",
+    "artist": "Triad",
+    "genre": "Christmas",
+    "time": "4.51 min",
+    "release": "1987",
+    "id": "3fcf78af-c574-4f2e-9e35-e6e429997b97"
   }
 ]
