@@ -1,8 +1,9 @@
 const body = document.querySelector("body");
-const form = document.querySelector("form");
-const titleInput = document.getElementById("#title");
-const artistInput = document.getElementById("#artist");
-const genreInput = document.getElementById("#genre");
+const formPatch = document.getElementById("formPatch");
+const titleInput = document.getElementById("title");
+const artistInput = document.getElementById("artist");
+const genreInput = document.getElementById("genre");
+const btnUpdate = document.getElementById("btnUpdate");
 
 function getDataByIdWithThen(id){
     fetch(`http://localhost:3000/songs/${id}`)

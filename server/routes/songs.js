@@ -111,8 +111,6 @@ router.delete('/:id', (req, res) => {
         });
 
         let jsonData = {"Message":"Raderad från spellistan"}
-
-        //res.send("Raderad från spellistan");
         res.json(jsonData);
         }
     });
@@ -147,7 +145,12 @@ router.patch('/:id', (req, res) => {
         }
     })
 
-    res.status(201).send("Uppdatering slutförd");
+    let jsonData = {
+        "Song" : song,
+        "Message":"Låten är nu uppdaterad"
+    }
+
+    res.json(jsonData);
     });
 });
 
