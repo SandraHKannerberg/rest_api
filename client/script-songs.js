@@ -127,6 +127,47 @@ function getDataWithThen(){
             .then(data => console.log(data))
             .catch(err => console.log(err))
             });
+
+            //KNAPP FÖR MER INFO OM LÅTEN
+            const infoBtn = document.createElement("button"); 
+            infoBtn.classList.add("infoBtn");
+            infoBtn.innerText = "Mer info";
+            btnContainer.appendChild(infoBtn);
+
+            //EVENTLISTENER FÖR MER INFO SOM KOPPLAS TILL GET METHOD MED SPECIFIKT ID
+            infoBtn.addEventListener("click", () => { 
+
+            const id = song.id;
+            const url = `http://localhost:3000/songs/${id}`
+
+            fetch(url)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data);
+
+                    const infoContainer = document.createElement("div");
+                    infoContainer.classList.add("infoContainer");
+                    songContainer.appendChild(infoContainer);
+
+                    const time = document.createElement("p")
+                    time.classList.add("time");
+                    time.textContent = "Låtens längd: " + data.time;
+
+                    const release = document.createElement("p")
+                    release.classList.add("release");
+                    release.textContent = "Släpptes år: " + data.release;
+        
+                    infoContainer.appendChild(time)
+                    infoContainer.appendChild(release)
+                })
+
+
+
+
+
+            });
         }
     })
 }

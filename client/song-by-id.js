@@ -1,38 +1,37 @@
-const body = document.querySelector("body");
-const formPatch = document.getElementById("formPatch");
-const titleInput = document.getElementById("title");
-const artistInput = document.getElementById("artist");
-const genreInput = document.getElementById("genre");
-const btnUpdate = document.getElementById("btnUpdate");
 
-function getDataByIdWithThen(id){
-    fetch(`http://localhost:3000/songs/${id}`)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
+const titleNew = document.getElementById("titleNew");
+const artistNew = document.getElementById("artistNew");
+const genreNew = document.getElementById("genreNew");
+const timeNew = document.getElementById("timeNew");
+const releaseNew = document.getElementById("releaseNew");
 
-            const songContainer = document.createElement("div")
-            songContainer.classList.add("songContainer");
-            body.appendChild(songContainer);
+const addBtn = document.getElementById("addBtn");
 
-            const title = document.createElement("h3")
-            title.classList.add("songTitle");
-            title.textContent = "Titel: " + data.title;
+addBtn.addEventListener("click", addANewSong)
 
-            const artist = document.createElement("h3")
-            artist.classList.add("artist");
-            artist.textContent = "Artist: " + data.artist;
 
-            const genre = document.createElement("h3")
-            genre.classList.add("genre");
-            genre.textContent = "Genre: " + data.genre;
+function addANewSong(){
 
-            songContainer.appendChild(title)
-            songContainer.appendChild(artist)
-            songContainer.appendChild(genre)
+    const url = `http://localhost:3000/songs/`;
+
+    const postMethod = {
+        method: 'POST', // Method itself
+        headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+        //'Content-type': 'text/html; charset=UTF-8' //FELMEDDELANDE 404 BLIR SYNTAX FEL. HUR LÖSER MAN DET?
+        },
+        body: JSON.stringify({
+            title: titleNew.value,
+            artist: artistNew.value,
+            genre: genreNew.value,
+            time: timeNew.value,
+            release: releaseNew.value,
         })
-}
+        }
 
-getDataByIdWithThen(5);
+        fetch(url, postMethod) 
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+
+    }

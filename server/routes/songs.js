@@ -53,7 +53,7 @@ router.post('/', function(req, res, next){
             }
         })
 
-        res.status(201).send(newSong);
+        res.status(201).json({"Message":"Ny låt tillagd i spellistan"});
         return;
         }
     });
