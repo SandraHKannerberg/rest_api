@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="add-song.js" defer></script>
+    <link rel="stylesheet" href="style_add-song.css">
     <title>Mer info om låten</title>
 </head>
 <body>
@@ -12,16 +13,15 @@
     <h1>Addera låt till spellistan</h1>
 
     <form id="formPost">
-        <label for="title">Titel:</label><br>
-        <input type="text" id="titleNew" name="title"><br>
-        <label for="artist">Artist:</label><br>
+        <input type="text" id="titleNew" name="title" placeholder="Titel"><br>
+        <br>
         <input type="text" id="artistNew" name="artist" placeholder="Artist"><br>
-        <label for="genre">Genre:</label><br>
-        <input type="text" id="genreNew" name="genre"><br>
-        <label for="time">Låtens speltid:</label><br>
-        <input type="text" id="timeNew" name="time"><br>
-        <label for="release">Release (år):</label><br>
-        <input type="text" id="releaseNew" name="realease"><br>
+        <br>
+        <input type="text" id="genreNew" name="genre" placeholder="Genre"><br>
+        <br>
+        <input type="text" id="timeNew" name="time" placeholder="Låtens längd i min"><br>
+        <br>
+        <input type="text" id="releaseNew" name="realease" placeholder="Släpptes år"><br>
         <br>
         <button id="addBtn">Slutför</button>
     </form>
