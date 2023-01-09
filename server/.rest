@@ -1,9 +1,9 @@
-GET http://localhost:3000/songs
+GET http://localhost:3000/api/songs
 //HÄMTAR HELA SPELLISTAN
 
 ###
 
-POST http://localhost:3000/songs
+POST http://localhost:3000/api/songs
 Content-Type: application/json
 //LÄGGER TILL NY LÅT SOM FÅR ETT UNIKT ID
 
@@ -17,18 +17,18 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/songs/5
+GET http://localhost:3000/api/songs/5
 //HÄMTAR EN SPECIFIK LÅT. TESTAT MED ID 5
 
 ###
 
-DELETE http://localhost:3000/songs/3
+DELETE http://localhost:3000/api/songs/3
 //RADERAR EN LÅT. TESTAT MED LÅT ID 3. 
 //DÄRAV ATT DETTA ID INTE FINNS KVAR I SPELLISTAN.
 
 ###
 
-PATCH http://localhost:3000/songs/6
+PATCH http://localhost:3000/api/songs/6
 Content-Type: application/json
 //UPPDATERAR EN LÅT. TESTAT MED LÅT ID 6
 

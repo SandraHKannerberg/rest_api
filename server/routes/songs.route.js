@@ -1,15 +1,17 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import { v4 as uuidv4 } from 'uuid'; //Ger unikt id till varje låt
 import fs from 'fs';
 import cors from 'cors';
 
 const router = express.Router();
+router.use(express.json());
+router.use(bodyParser.json());
 router.use(cors());
 
-//GÅ IGENOM KODEN OCH SE TILL ATT ALLA MEDDELANDEN ÄR PÅ SAMMA SPRÅK. VÄLJ ANTINGEN SVENSKA ELLER ENGELSKA
-//SKA JAG JUSTERA STARTEN FÖR ALLA ENDPOINTS TILL /API INNAN /SONGS????
 
-//Alla endpoints här lyssnar till route /songs
+//GÅ IGENOM KODEN OCH SE TILL ATT ALLA MEDDELANDEN ÄR PÅ SAMMA SPRÅK. VÄLJ ANTINGEN SVENSKA ELLER ENGELSKA
+//Error 404 skickar html fast jag skrivit json. Varför?
 
 //GET endpoint som hämtar hela spellistan
 router.get('/', (req, res) => {
@@ -17,14 +19,14 @@ router.get('/', (req, res) => {
 
         if(err){
             console.log(err);
-            res.status(404).send("Filen du försöker nå finns inte")
+            res.status(404).json("Filen du försöker nå finns inte");
         }
 
         const songs = JSON.parse(data)
 
         console.log(data);
         
-        res.send(songs);
+        res.json(songs);
         return;
     });
 });
@@ -42,7 +44,7 @@ router.post('/', function(req, res, next){
         let newSong = req.body;
 
         if(!req.body.title) {
-            res.status(404).send("Det gick inte att lägga till låten i spellistan, vänligen skriv en titel.");
+            res.status(404).json("Det gick inte att lägga till låten i spellistan, vänligen skriv en titel.");
         } else {
 
         songs.push({ ...newSong, id: uuidv4()}); //Får ett unikt id
@@ -66,7 +68,7 @@ router.get('/:id', (req, res) => {
 
         if(err){
             console.log(err);
-            res.status(404).send("Filen du försöker nå finns inte")
+            res.status(404).json("Filen du försöker nå finns inte");
         }
 
     const songs = JSON.parse(data)
@@ -75,9 +77,9 @@ router.get('/:id', (req, res) => {
 
     const foundSong = songs.find((song) => song.id === id);
 
-    if(!foundSong) res.status(404).send("Låten du försöker nå finns inte");
+    if(!foundSong) res.status(404).json("Låten du försöker nå finns inte");
         
-    res.send(foundSong);
+    res.json(foundSong);
     });
 });
 
@@ -89,7 +91,7 @@ router.delete('/:id', (req, res) => {
 
         if(err){
             console.log(err);
-            res.status(404).send("Filen du försöker nå finns inte")
+            res.status(404).json("Filen du försöker nå finns inte")
         }
 
     let songs = JSON.parse(data)
@@ -99,7 +101,7 @@ router.delete('/:id', (req, res) => {
     const song = songs.find((song) => song.id === id);
   
     if(!song) {
-        res.status(404).send("Error - id saknas, låten kan inte raderas från spellistan");
+        res.status(404).json("Error - id saknas, låten kan inte raderas från spellistan");
     } else {
         songs = songs.filter((song) => song.id !== id);
 
@@ -123,7 +125,7 @@ router.patch('/:id', (req, res) => {
 
         if(err){
             console.log(err);
-            res.status(404).send("Filen du försöker nå finns inte")
+            res.status(404).json("Filen du försöker nå finns inte");
         }
 
     let songs = JSON.parse(data)
@@ -133,7 +135,7 @@ router.patch('/:id', (req, res) => {
 
     const song = songs.find((song) => song.id === id);
 
-    if(!song) res.status(404).send("Låten du försöker uppdatera finns inte");
+    if(!song) res.status(404).json("Låten du försöker uppdatera finns inte");
     
     if(title) song.title = title;
     if(artist) song.artist = artist;
