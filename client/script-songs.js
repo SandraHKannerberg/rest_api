@@ -97,8 +97,7 @@ function getAllSongs(){
                 return response.json();
             })
             .then(function (data) {
-                console.log(data);
-
+            
                     const infoContainer = document.createElement("div");
                     infoContainer.classList.add("infoContainer");
                     songContainer.appendChild(infoContainer);
