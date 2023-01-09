@@ -174,7 +174,7 @@ function getAllSongs(){
             body: JSON.stringify({
                 title: inputTitle.value,
                 artist: inputArtist.value,
-                genre: inputArtist.value,
+                genre: inputGenre.value,
             })
             }
 
@@ -183,11 +183,16 @@ function getAllSongs(){
             .then(data => console.log(data))
             .catch(err => console.log(err))
 
-            alert("Låten är nu uppdaterad");
+            if(inputTitle.value || inputArtist.value || inputGenre.value) {
+                alert("Låten är nu uppdaterad");
+            } else {
+                alert("Finns inget att uppdatera");
+            }
+
             });
         }
     })
-    .catch(err => console.log("Sidan finns inte"))
+    .catch(err => console.log("Sidan du försöker nå finns inte"))
 }
 
 getAllSongs();

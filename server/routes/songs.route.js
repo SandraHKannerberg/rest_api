@@ -7,20 +7,15 @@ const router = express.Router();
 router.use(express.json());
 router.use(cors());
 
-
-//GÅ IGENOM KODEN OCH SE TILL ATT ALLA MEDDELANDEN ÄR PÅ SAMMA SPRÅK. VÄLJ ANTINGEN SVENSKA ELLER ENGELSKA
-//Error 404 skickar html fast jag skrivit json om jag hänvisar till feladress i rest client. Varför?
-//404 fungerar om jag hänvisar till fel json.fil men har rätt endpoint via rest client
-
 //GET endpoint som hämtar hela spellistan
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
     fs.readFile("songs.json", function (err, data){
 
         if(err){
             console.log(err);
         
-            return res.status(404).json("Filen du försöker nå finns inte");
-            //next(err);
+            return res.status(404).json("Sidan du försöker nå finns inte");
+
         }
 
         const songs = JSON.parse(data)
@@ -113,8 +108,8 @@ router.delete('/:id', (req, res) => {
             }
         });
 
-        let jsonData = {"Message":"Raderad från spellistan"}
-        res.json(jsonData);
+        //let jsonData = {"Message":"Raderad från spellistan"}
+        res.json(`Låt med id ${id} är nu raderad från spellistan`);
         }
     });
 });
@@ -136,11 +131,13 @@ router.patch('/:id', (req, res) => {
 
     const song = songs.find((song) => song.id === id);
 
-    if(!song) res.status(404).json("Låten du försöker uppdatera finns inte");
-    
+    if(!song) return res.status(404).json("Låten du försöker uppdatera finns inte");
+
     if(title) song.title = title;
     if(artist) song.artist = artist;
     if(genre) song.genre = genre;
+
+    if(!title || artist || genre) return res.status(404).json("Inget att uppdatera!");
 
     fs.writeFile("songs.json", JSON.stringify(songs, null, 2), function(err){
         if(err){
