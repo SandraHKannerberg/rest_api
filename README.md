@@ -44,7 +44,8 @@ Krav för väl godkänt:<br>
 •	GET – hela spellistan nås via songs.html. Anrop till GET endpoint som visar alla låtar<br>
 •	GET med id – Denna endpoint nås i frontend med hjälp av ”Mer info” knappen. Det dyker då upp en extra rad med ytterligare info om låten som sedan kan döljas<br> 
 igen genom att klicka på Dölj.<br>
-•	POST – lägger till en ny låt i spellistan. I frontend ligger denna formulär på en egen sida som nås via knappen ”Lägg till ny låt”.<br> 
+•	POST – lägger till en ny låt i spellistan. I frontend ligger denna formulär på en egen sida som nås via knappen ”Lägg till ny låt”.<br>
+Minst låtens titel måste vara ifyllt för att kunna slutföra<br>
 Fyll i alla fält i formulären och klicka på ”Slutför” så kommer den nya låten att läggas till i spellistan.<br>
 •	PATCH – i varje låts egen box finns det fält där man direkt kan skriva en uppdatering om antingen titel, artist eller genre.<br>
 Klickar man på ”Uppdatera” kommer det upp en alert som bekräftelse och när man klickat ok måste man även uppdatera sidan för att ändringarna ska synas i frontend.<br> Detta ser jag som en möjlighet att lära mig mer om så att jag i nästa projekt får till uppdateringen per automatik när den är gjord.<br>
