@@ -55,7 +55,10 @@ i frontend med anrop via knappen ”Mer info”.<br>
 <br>
 Hur projektet byggs och körs:<br>
 Klona ner repot https://github.com/SandraHKannerberg/rest_api.git<br>
-Öppna i VS-code<br>
+Projektet består av huvudmappen rest_api innehållandes två mappar, Server och Client<br>
+Öppna projekt-mappen Server i VS-code<br>
 Öppna Terminalen i VS-code<br>
 Kör npm install i Terminalen<br>
 Kör nodemon server.js i Terminalen<br>
+Servern är igång och kan testas<br>
+Frontend nås via projekt-mappen Client<br>
