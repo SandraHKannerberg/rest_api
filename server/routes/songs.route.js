@@ -9,20 +9,23 @@ router.use(cors());
 
 
 //GÅ IGENOM KODEN OCH SE TILL ATT ALLA MEDDELANDEN ÄR PÅ SAMMA SPRÅK. VÄLJ ANTINGEN SVENSKA ELLER ENGELSKA
-//Error 404 skickar html fast jag skrivit json. Varför?
+//Error 404 skickar html fast jag skrivit json om jag hänvisar till feladress i rest client. Varför?
+//404 fungerar om jag hänvisar till fel json.fil men har rätt endpoint via rest client
 
 //GET endpoint som hämtar hela spellistan
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
     fs.readFile("songs.json", function (err, data){
 
         if(err){
             console.log(err);
-            res.status(404).json("Filen du försöker nå finns inte");
+        
+            return res.status(404).json("Filen du försöker nå finns inte");
+            //next(err);
         }
 
         const songs = JSON.parse(data)
 
-        console.log(data);
+        console.log(songs);
         
         res.json(songs);
         return;
@@ -42,7 +45,7 @@ router.post('/', function(req, res, next){
         let newSong = req.body;
 
         if(!req.body.title) {
-            res.status(404).json("Det gick inte att lägga till låten i spellistan, vänligen skriv en titel.");
+            return res.status(404).json("Det gick inte att lägga till låten i spellistan, vänligen skriv en titel.");
         } else {
 
         songs.push({ ...newSong, id: uuidv4()}); //Får ett unikt id
@@ -66,7 +69,7 @@ router.get('/:id', (req, res) => {
 
         if(err){
             console.log(err);
-            res.status(404).json("Filen du försöker nå finns inte");
+            return res.status(404).json("Filen du försöker nå finns inte");
         }
 
     const songs = JSON.parse(data)
@@ -89,7 +92,7 @@ router.delete('/:id', (req, res) => {
 
         if(err){
             console.log(err);
-            res.status(404).json("Filen du försöker nå finns inte")
+            return res.status(404).json("Filen du försöker nå finns inte")
         }
 
     let songs = JSON.parse(data)
@@ -99,7 +102,7 @@ router.delete('/:id', (req, res) => {
     const song = songs.find((song) => song.id === id);
   
     if(!song) {
-        res.status(404).json("Error - id saknas, låten kan inte raderas från spellistan");
+        return res.status(404).json("Error - id saknas, låten kan inte raderas från spellistan");
     } else {
         songs = songs.filter((song) => song.id !== id);
 
@@ -123,7 +126,7 @@ router.patch('/:id', (req, res) => {
 
         if(err){
             console.log(err);
-            res.status(404).json("Filen du försöker nå finns inte");
+            return res.status(404).json("Filen du försöker nå finns inte");
         }
 
     let songs = JSON.parse(data)

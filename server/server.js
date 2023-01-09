@@ -8,9 +8,10 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+app.use(cors());
 app.use(bodyParser.json()); //vi kan använda json-data
 app.use('/api/songs', songsRoutes);
-app.use(cors())
+
 
 //First route
 app.get('/', (req, res) => res.send("Hello from first route"));

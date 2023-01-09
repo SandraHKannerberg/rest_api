@@ -19,8 +19,6 @@ function getAllSongs(){
     })
     .then(function (data) {
 
-        console.log(data);
-
         for (const song of data) {
             //SKAPAR VARJE "LÅTBOX"
             const songContainer = document.createElement("div")
@@ -189,6 +187,7 @@ function getAllSongs(){
             });
         }
     })
+    .catch(err => console.log("Sidan finns inte"))
 }
 
 getAllSongs();
