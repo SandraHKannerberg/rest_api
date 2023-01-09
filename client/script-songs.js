@@ -12,7 +12,7 @@ function walkToAdd() {
       window.location.href="/add-song.html"
 }
   
-function getDataWithThen(){
+function getAllSongs(){
     fetch("http://localhost:3000/songs")
     .then(function (response) {
         return response.json();
@@ -182,4 +182,5 @@ function getDataWithThen(){
     })
 }
 
-getDataWithThen();
+getAllSongs();
+
