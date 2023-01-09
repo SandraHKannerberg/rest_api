@@ -21,10 +21,10 @@ function addANewSong(){
     const url = `http://localhost:3000/api/songs/`;
 
     const postMethod = {
-        method: 'POST', // Method itself
+        method: 'POST',
         headers: {
         'Content-type': 'application/json; charset=UTF-8',
-        //'Content-type': 'text/html; charset=UTF-8' //FELMEDDELANDE 404 BLIR SYNTAX FEL. HUR LÖSER MAN DET?
+    
         },
         body: JSON.stringify({
             title: titleNew.value,

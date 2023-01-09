@@ -141,7 +141,6 @@ function getAllSongs(){
             method: 'DELETE',
             headers: {
             'Content-type': 'application/json; charset=UTF-8',
-            //'Content-type': 'text/html; charset=UTF-8' //FELMEDDELANDE 404 BLIR SYNTAX FEL. HUR LÖSER MAN DET?
             },
             }
 
