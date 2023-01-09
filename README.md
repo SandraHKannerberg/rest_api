@@ -1,5 +1,7 @@
-# Inlämning rest_api Spellista jullåtar<br>
+# Inlämning rest_api<br>
 REST API with node.js express<br>
+Repo https://github.com/SandraHKannerberg/rest_api.git<br> 
+<br>
 Titel:<br> 
 Christmas playlist<br>
 <br>
@@ -16,7 +18,6 @@ Via knappen Lägg till ny låt kommer man till en ny sida (add-song.html) där d
 <br>
 I servern har jag valt att ha en uppdelning med egen mapp för routes där alla mina endpoints för resursen jullåtar är programmerade i songs.route.js,<br> 
 dessa exporteras till server.js som är start-filen. Detta för att tidigt komma in i tänket att dela upp sin applikation i mindre delar och ha en bra mapp-struktur.<br>
-<br>
 <br>
 Uppfyllda krav:<br>
 <br>
@@ -52,9 +53,8 @@ uppdatera sidan för att den ska försvinna från spellistan i frontend.<br>
 3.	Ytterligare en GET endpoint skall läggas till där det går att hämta ett specifikt objekt. Denna endpoint finns både i RESTclient och som jag ovan beskrivit<br> 
 i frontend med anrop via knappen ”Mer info”.<br>
 <br>
-<br>
 Hur projektet byggs och körs:<br>
-Klona ner repot<br>
+Klona ner repot https://github.com/SandraHKannerberg/rest_api.git<br>
 Öppna i VS-code<br>
 Öppna Terminalen i VS-code<br>
 Kör npm install i Terminalen<br>
