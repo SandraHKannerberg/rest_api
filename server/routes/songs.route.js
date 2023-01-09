@@ -137,8 +137,6 @@ router.patch('/:id', (req, res) => {
     if(artist) song.artist = artist;
     if(genre) song.genre = genre;
 
-    if(!title || artist || genre) return res.status(404).json("Inget att uppdatera!");
-
     fs.writeFile("songs.json", JSON.stringify(songs, null, 2), function(err){
         if(err){
             console.log(err);

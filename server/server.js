@@ -14,15 +14,7 @@ app.use('/api/songs', songsRoutes);
 
 
 //First route
-app.get('/', (req, res, next) => {
-
-    if(next.err){
-        console.log(err);
-        return res.status(404).json("Filen du försöker nå finns inte");
-    } else {
-        return res.send("Hello from first route");
-    }
-})
-
+app.get('/', (req, res) => res.send("Test - Hello from first route"));
+    
 //Express server körs
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

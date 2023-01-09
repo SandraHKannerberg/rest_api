@@ -1,5 +1,37 @@
 [
   {
+    "title": "Hey Ho",
+    "artist": "Freddy Kalas",
+    "genre": "Christmas",
+    "time": "2.56 min",
+    "release": "2015",
+    "id": "1"
+  },
+  {
+    "title": "Stilla Natt",
+    "artist": "Carola",
+    "genre": "Christmas",
+    "time": "3.21 min",
+    "release": "1991",
+    "id": "2"
+  },
+  {
+    "title": "Jul, Jul Strålande Jul",
+    "artist": "Linnea Henriksson",
+    "genre": "Christmas",
+    "time": "4.44min",
+    "release": "2019",
+    "id": "4"
+  },
+  {
+    "title": "Juligen",
+    "artist": "Just D",
+    "genre": "Christmas",
+    "time": "2.43 min",
+    "release": "1991",
+    "id": "5"
+  },
+  {
     "title": "Last Christmas",
     "artist": "Wham!",
     "genre": "Christmas",
@@ -21,6 +53,6 @@
     "genre": "Christmas",
     "time": "4.51 min",
     "release": "1987",
-    "id": "3fcf78af-c574-4f2e-9e35-e6e429997b97"
+    "id": "6b39c21f-2871-4053-9535-34c2841e1ff3"
   }
 ]
