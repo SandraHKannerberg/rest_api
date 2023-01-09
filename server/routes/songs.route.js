@@ -40,7 +40,7 @@ router.post('/', function(req, res, next){
         let newSong = req.body;
 
         if(!req.body.title) {
-            return res.status(404).json("Det gick inte att lägga till låten i spellistan, vänligen skriv en titel.");
+            res.status(404).json("Det gick inte att lägga till låten i spellistan, vänligen skriv en titel.");
         } else {
 
         songs.push({ ...newSong, id: uuidv4()}); //Får ett unikt id
@@ -108,7 +108,6 @@ router.delete('/:id', (req, res) => {
             }
         });
 
-        //let jsonData = {"Message":"Raderad från spellistan"}
         res.json(`Låt med id ${id} är nu raderad från spellistan`);
         }
     });

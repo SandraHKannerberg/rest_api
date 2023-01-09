@@ -18,7 +18,7 @@ function walkToPlaylist() {
 
 function addANewSong(){
 
-    const url = `http://localhost:3000/songs/`;
+    const url = `http://localhost:3000/api/songs/`;
 
     const postMethod = {
         method: 'POST', // Method itself
@@ -40,5 +40,10 @@ function addANewSong(){
         .then(data => console.log(data))
         .catch(err => console.log(err))
 
-        alert("Ny låt är nu tillagd i spellistan");
+        if(titleNew.value) {
+            alert("Låten är nu tillagd i spellistan");
+        } else {
+            alert("Titel saknas, vänligen försök igen");
+        }
+
     }
