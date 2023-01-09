@@ -1,12 +1,10 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import { v4 as uuidv4 } from 'uuid'; //Ger unikt id till varje låt
 import fs from 'fs';
 import cors from 'cors';
 
 const router = express.Router();
 router.use(express.json());
-router.use(bodyParser.json());
 router.use(cors());
 
 

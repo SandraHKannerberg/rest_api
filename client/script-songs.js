@@ -13,7 +13,7 @@ function walkToAdd() {
 }
   
 function getAllSongs(){
-    fetch("http://localhost:3000/songs")
+    fetch("http://localhost:3000/api/songs")
     .then(function (response) {
         return response.json();
     })
@@ -92,7 +92,7 @@ function getAllSongs(){
             infoBtn.addEventListener("click", () => { 
 
             const id = song.id;
-            const url = `http://localhost:3000/songs/${id}`
+            const url = `http://localhost:3000/api/songs/${id}`
 
             fetch(url)
             .then(function (response) {
@@ -112,9 +112,19 @@ function getAllSongs(){
                     const release = document.createElement("p")
                     release.classList.add("release");
                     release.textContent = "Släpptes år: " + data.release;
+
+                    const hide = document.createElement("p")
+                    hide.classList.add("hide");
+                    hide.textContent = "Dölj";
+                    hide.style.color = "blue";
+
+                    hide.addEventListener("click", () => {
+                        infoContainer.style.display = "none";
+                    })
         
                     infoContainer.appendChild(time)
                     infoContainer.appendChild(release)
+                    infoContainer.appendChild(hide)
                 })
             });
 
@@ -128,7 +138,7 @@ function getAllSongs(){
             delBtn.addEventListener("click", () => {
 
             const id = song.id;
-            const url = `http://localhost:3000/songs/${id}`
+            const url = `http://localhost:3000/api/songs/${id}`
 
             const deleteMethod = {
             method: 'DELETE',
@@ -156,13 +166,12 @@ function getAllSongs(){
             updateBtn.addEventListener("click", () => {
 
             const id = song.id;
-            const url = `http://localhost:3000/songs/${id}`
+            const url = `http://localhost:3000/api/songs/${id}`
 
             const patchMethod = {
             method: 'PATCH',
             headers: {
             'Content-type': 'application/json; charset=UTF-8',
-            //'Content-type': 'text/html; charset=UTF-8' //FELMEDDELANDE 404 BLIR SYNTAX FEL. HUR LÖSER MAN DET?
             },
             body: JSON.stringify({
                 title: inputTitle.value,
